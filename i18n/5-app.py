@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Basic Flask app that implements i18n and internationalization"""
+"""Basic Flask app that implements i18n and internationalizatin"""
 
 from flask import Flask, render_template, request, g
 from flask_babel import Babel
