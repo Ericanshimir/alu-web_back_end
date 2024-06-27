@@ -13,7 +13,6 @@ class Config:
 
 
 app.config.from_object(Config)
-babel = Babel(app, locale_selector=get_locale)
 def get_locale():
     """Get locale for your application"""
     locale = request.args.get('locale')
