@@ -3,15 +3,12 @@
 
 from flask import Flask, render_template, request
 from flask_babel import Babel, get_locale, get_timezone
-
 app = Flask(__name__)
 class Config:
     """Config class for your application, it deals with babel mostly"""
     LANGUAGES = ["en", "fr"]
     BABEL_DEFAULT_LOCALE = "en"
     BABEL_DEFAULT_TIMEZONE = "UTC"
-
-
 app.config.from_object(Config)
 def get_locale():
     """Get locale for your application"""
