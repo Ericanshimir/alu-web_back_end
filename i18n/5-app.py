@@ -1,4 +1,3 @@
-
 #!/usr/bin/env python3
 """
 A Flask web application that mocks a user login system and displays.
