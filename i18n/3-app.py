@@ -28,7 +28,7 @@ def get_locale():
 
 @app.route('/')
 def index():
-    """helloworld"""
+    """hello world"""
     return render_template("3-index.html", message="Welcome to Halberton")
 
 
