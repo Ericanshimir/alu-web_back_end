@@ -2,7 +2,7 @@
 """Basic Flask app that implements i18n and internationalization"""
 
 from flask import Flask, render_template, request
-from flask_babel import Babel, get_locale, get_timezone
+from flask_babel import Babel
 
 app = Flask(__name__)
 
@@ -15,8 +15,10 @@ class Config:
 
 
 app.config.from_object(Config)
+babel = Babel(app)
 
 
+@babel.localeselector
 def get_locale():
     """Get locale for your application"""
     locale = request.args.get('locale')
