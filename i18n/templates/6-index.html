@@ -1,26 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>User Login Mock</title>
+    <title>{{_('home_title')}}</title>
 </head>
 <body>
-    {% if g.user %}
-        <p>
-            {% if g.locale == 'fr' %}
-                Vous êtes connecté en tant que {{ g.user.name }}.
-            {% else %}
-                You are logged in as {{ g.user.name }}.
-            {% endif %}
-        </p>
+    <h1>{{_('home_header')}}</h1>
+    {% if login %}
+    <p>{{ _('logged_in_as', username=g.user['name']) }}</p>
     {% else %}
-        <p>
-            {% if g.locale == 'fr' %}
-                Vous n'êtes pas connecté.
-            {% else %}
-                You are not logged in.
-            {% endif %}
-        </p>
+    <p>{{ _('not_logged_in') }}</p>
     {% endif %}
 </body>
 </html>
