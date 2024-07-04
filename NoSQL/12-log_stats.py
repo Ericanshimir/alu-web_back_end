@@ -36,8 +36,16 @@ if __name__ == "__main__":
 
     # Access the collection
     try:
-        nginx_collection = client.logs.nginx
+        db = client.logs
+        nginx_collection = db.nginx
         print("Accessed nginx collection successfully")
+
+        # Debug: Print a sample document
+        sample_document = nginx_collection.find_one()
+        if sample_document:
+            print("Sample document from nginx collection:", sample_document)
+        else:
+            print("No documents found in the nginx collection")
     except Exception as e:
         print(f"Failed to access nginx collection: {e}")
         exit(1)
