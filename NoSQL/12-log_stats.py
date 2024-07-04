@@ -26,5 +26,25 @@ def log_stats(mongo_collection, option=None):
     print(f"{status_check} status check")
 
 if __name__ == "__main__":
-    nginx_collection = MongoClient('mongodb://127.0.0.1:27017').logs.nginx
-    log_stats(nginx_collection)
+    try:
+        # Attempt to connect to MongoDB
+        client = MongoClient('mongodb://127.0.0.1:27017')
+        print("Connected to MongoDB successfully")
+    except Exception as e:
+        print(f"Failed to connect to MongoDB: {e}")
+        exit(1)
+
+    # Access the collection
+    try:
+        nginx_collection = client.logs.nginx
+        print("Accessed nginx collection successfully")
+    except Exception as e:
+        print(f"Failed to access nginx collection: {e}")
+        exit(1)
+
+    # Perform logging statistics
+    try:
+        log_stats(nginx_collection)
+    except Exception as e:
+        print(f"An error occurred while fetching stats: {e}")
+        exit(1)
